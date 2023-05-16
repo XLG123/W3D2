@@ -12,17 +12,13 @@ class Game
   end
 
   def play
-    # @board.render
-
     pos = self.get_user_input
 
     card_1 = @board[*pos]
-    if !card_1.to_s.empty?
+    if card_1.to_s != " "
       return nil
     end
     card_1.reveal
-
-    # @board.render
 
     if !@guessed_pos
       @guessed_pos = pos
@@ -37,12 +33,15 @@ class Game
         @board.render
       end
       @guessed_pos = nil
+      clear
+      @board.render
     end
   end
 
-  # def clear
-
-  # end
+  def clear
+    sleep(5)
+    system("clear")
+  end
 
   def game
     @board.populate

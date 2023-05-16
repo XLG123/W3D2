@@ -27,7 +27,7 @@ class Board
   end
 
   def won?
-    @grid.all? { |row| row.all? { |card| card.to_s != "" } }
+    @grid.all? { |row| row.all? { |card| card.to_s != " " } }
   end
 
   def reveal(guessed_pos)

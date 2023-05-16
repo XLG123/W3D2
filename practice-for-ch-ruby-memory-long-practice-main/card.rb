@@ -16,7 +16,7 @@ class Card
   end
 
   def to_s
-    str = @flip ? @face_value : ""
+    str = @flip ? @face_value : " "
   end
 
   def ==(other_card)
