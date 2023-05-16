@@ -15,4 +15,18 @@ class Board
       end 
     end
   end
+
+  def render
+    print " "
+    (0...4).each { |i| print " #{i}" }
+    puts
+    @grid.each_with_index do |row, idx|
+      print "#{idx} "
+      puts row.map { |card| card.to_s }.join(" ")
+    end
+  end
+
+  def won?
+    
+  end
 end
