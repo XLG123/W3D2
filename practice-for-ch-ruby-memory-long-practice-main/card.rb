@@ -12,6 +12,7 @@ class Card
 
   def reveal
     @flip = true
+    self
   end
 
   def to_s
