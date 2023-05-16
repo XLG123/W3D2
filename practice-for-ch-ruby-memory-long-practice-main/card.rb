@@ -1,4 +1,6 @@
 class Card
+  attr_reader :face_value
+  
   def initialize(face_value)
     @face_value = face_value
     @flip = false
@@ -17,7 +19,6 @@ class Card
   end
 
   def ==(other_card)
-    self.
+    self.face_value == other_card.face_value
   end
-
 end
