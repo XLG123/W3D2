@@ -34,4 +34,8 @@ class Board
     row, col = *guessed_pos
     @grid[row][col].reveal.to_s
   end
+
+  def [](row, col)
+    @grid[row][col]
+  end
 end
