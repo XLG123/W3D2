@@ -8,34 +8,33 @@ class Game
   end
 
   def get_user_input
+    print 'Enter position: '
     gets.chomp.split.map! { |idx| idx.to_i }
   end
 
   def play
-    pos = self.get_user_input
-
-    card_1 = @board[*pos]
-    if card_1.to_s != " "
-      return nil
-    end
+    pos1 = get_user_input
+    card_1 = @board[*pos1]
     card_1.reveal
 
-    if !@guessed_pos
-      @guessed_pos = pos
-      @board.render
-    else
-      card_2 = @board[*@guessed_pos]
-      card_2.reveal
-      @board.render
-      if card_1 != card_2
-        card_1.hide
-        card_2.hide
-        @board.render
-      end
-      @guessed_pos = nil
-      clear
-      @board.render
+    system("clear")
+    @board.render
+
+    pos2 = get_user_input
+    card_2 = @board[*pos2]
+    card_2.reveal
+
+    system("clear")
+    @board.render
+
+    if card_1 != card_2
+      card_1.hide
+      card_2.hide
+      sleep(1.5)
     end
+
+    system("clear")
+    @board.render
   end
 
   def clear
@@ -45,7 +44,7 @@ class Game
 
   def game
     @board.populate
-    p @board
+    # p @board
 
     @board.render
     while !@board.won?
