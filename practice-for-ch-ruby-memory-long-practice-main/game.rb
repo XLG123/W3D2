@@ -1,5 +1,6 @@
 require_relative 'board'
 require_relative 'card'
+require_relative 'human_player'
 
 class Game
   def initialize
@@ -7,12 +8,14 @@ class Game
     @guessed_pos = nil
   end
 
-  def get_user_input
-    gets.chomp.split.map! { |idx| idx.to_i }
-  end
+  # def get_user_input
+  #   gets.chomp.split.map! { |idx| idx.to_i }
+  # end
+
+
 
   def play
-    pos = self.get_user_input
+    pos = HumanPlayer.get_user_input
 
     card_1 = @board[*pos]
     if card_1.to_s != " "
@@ -39,7 +42,7 @@ class Game
   end
 
   def clear
-    sleep(5)
+    sleep(2)
     system("clear")
   end
 
